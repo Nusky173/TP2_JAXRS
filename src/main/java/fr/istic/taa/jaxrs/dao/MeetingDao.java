@@ -18,9 +18,20 @@ public class MeetingDao extends AbstractJpaDao<Long, Meeting> {
      * @param d Date of Meeting
      * @return Meeting
      */
-    private List<Meeting> findByDate(Date d) {
-        return this.entityManager.createQuery("Select m From Meeting m Where m.date = " + d, Meeting.class).getResultList();
+    public List<Meeting> findByDate(Date d) {
+        return this.entityManager.createQuery("Select m From Meeting m Where m.date = :d" , Meeting.class).setParameter("d",d).getResultList();
 
     }
+
+    /**
+     * Find Meeting By Date
+     * @param indivId Date of Meeting
+     * @return Meeting
+     */
+    public List<Meeting> findByIndiv(long indivId) {
+        return this.entityManager.createQuery("Select m From Meeting m Where m.patient.id = :id", Meeting.class).setParameter("id",indivId).getResultList();
+
+    }
+
 
 }

@@ -20,6 +20,15 @@ public class AgendaDao extends AbstractJpaDao<Long, Agenda> {
      * @return Meeting list
      */
     public List<Meeting> listMeeting(long id) {
-        return this.entityManager.createNamedQuery("listMeetingOfAgenda", Meeting.class).setParameter("id", id).getResultList();
+        return this.entityManager.createNamedQuery("listMeetingOfAgenda", Meeting.class)
+                .setParameter("id", id)
+                .getResultList();
+    }
+
+    public Agenda connectToAgenda(String login, String password) {
+        return this.entityManager.createNamedQuery("connectToAgenda", Agenda.class)
+                .setParameter("login", login)
+                .setParameter("password", password)
+                .getSingleResult();
     }
 }

@@ -6,16 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@NamedQuery(name = "listMeetingOfAgenda", query = "Select a.meetingList From Agenda a Where a.id = :id")
+@NamedQueries({
+        @NamedQuery(name = "listMeetingOfAgenda", query = "Select m From Agenda a, Meeting m Where a.id = :id"),
+        @NamedQuery(name="connectToAgenda", query="select a from Agenda a " +
+                "where a.login = :login AND a.password = :password ")
+})
 public class Agenda implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
     private long id;
     public String login;
     public String password;
     public String url;
-    @OneToMany
     public List<Meeting> meetingList;
 
     /**
@@ -104,6 +104,7 @@ public class Agenda implements Serializable {
      * @return list of meeting
      */
     @OneToMany
+    @JoinColumn(name="agendaId")
     public List<Meeting> getMeetingList() {
         return meetingList;
     }

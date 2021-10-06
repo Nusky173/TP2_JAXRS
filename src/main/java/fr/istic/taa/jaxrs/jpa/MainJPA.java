@@ -59,15 +59,18 @@ public class MainJPA {
      * Create DB
      */
     private void createDB() {
-        Agenda agenda = new Agenda("url", "login", "password");
-        Individual individual1 = new Individual("IndividualFirstName1", "IndividualLastName1", "IndividualLogin1", "IndividualPassword1", "1");
-        Individual individual2 = new Individual("IndividualFirstName2", "IndividualLastName2", "IndividualLogin2", "IndividualPassword2", "2");
+        Agenda agenda = new Agenda("http://url", "slecordiagenda", "triiiiix");
+        Individual individual1 = new Individual("Alexis", "Leloup", "IndividualLogin1"
+                , "1234", "0651515151");
+        Individual individual2 = new Individual("Antoine", "Cornilleau", "IndividualLogin2"
+                , "1234", "0653435152");
         Meeting meeting1 = new Meeting(new Date(), "meeting1", individual1);
         Meeting meeting2 = new Meeting(new Date(), "meeting2", individual2);
         agenda.addMeeting(meeting1);
         agenda.addMeeting(meeting2);
         manager.persist(agenda);
-        manager.persist(new Professional("ProfessionalFirstName", "ProfessionalLastName", "ProfessionalLLogin", "ProfessionalPassword", agenda));
+        manager.persist(new Professional("Simon", "Lecordier", "slecordier"
+                , "684984", agenda));
         manager.persist(meeting1);
         manager.persist(meeting2);
         manager.persist(individual1);

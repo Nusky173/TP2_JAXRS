@@ -2,10 +2,13 @@ package fr.istic.taa.jaxrs.entities;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class User {
+@NamedQuery(name="findUserByLogAndPassword", query="select u from User u " +
+        "where u.login = :login AND u.password = :password ")
+public class User implements Serializable {
 
     public String firstName;
     public String lastName;

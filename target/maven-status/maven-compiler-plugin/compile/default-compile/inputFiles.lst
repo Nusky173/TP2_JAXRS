@@ -1,0 +1,17 @@
+/home/simonlecordier/workspace/m1/TAA/JaxRSOpenAPI/src/main/java/fr/istic/taa/jaxrs/dao/IndividualDao.java
+/home/simonlecordier/workspace/m1/TAA/JaxRSOpenAPI/src/main/java/fr/istic/taa/jaxrs/dao/AgendaDao.java
+/home/simonlecordier/workspace/m1/TAA/JaxRSOpenAPI/src/main/java/fr/istic/taa/jaxrs/entities/Individual.java
+/home/simonlecordier/workspace/m1/TAA/JaxRSOpenAPI/src/main/java/fr/istic/taa/jaxrs/jpa/EntityManagerHelper.java
+/home/simonlecordier/workspace/m1/TAA/JaxRSOpenAPI/src/main/java/fr/istic/taa/jaxrs/entities/User.java
+/home/simonlecordier/workspace/m1/TAA/JaxRSOpenAPI/src/main/java/fr/istic/taa/jaxrs/dao/ProfessionalDao.java
+/home/simonlecordier/workspace/m1/TAA/JaxRSOpenAPI/src/main/java/fr/istic/taa/jaxrs/domain/Pet.java
+/home/simonlecordier/workspace/m1/TAA/JaxRSOpenAPI/src/main/java/fr/istic/taa/jaxrs/dao/MeetingDao.java
+/home/simonlecordier/workspace/m1/TAA/JaxRSOpenAPI/src/main/java/fr/istic/taa/jaxrs/rest/PetResource.java
+/home/simonlecordier/workspace/m1/TAA/JaxRSOpenAPI/src/main/java/fr/istic/taa/jaxrs/jpa/MainJPA.java
+/home/simonlecordier/workspace/m1/TAA/JaxRSOpenAPI/src/main/java/fr/istic/taa/jaxrs/TestApplication.java
+/home/simonlecordier/workspace/m1/TAA/JaxRSOpenAPI/src/main/java/fr/istic/taa/jaxrs/entities/Professional.java
+/home/simonlecordier/workspace/m1/TAA/JaxRSOpenAPI/src/main/java/fr/istic/taa/jaxrs/entities/Meeting.java
+/home/simonlecordier/workspace/m1/TAA/JaxRSOpenAPI/src/main/java/fr/istic/taa/jaxrs/entities/Agenda.java
+/home/simonlecordier/workspace/m1/TAA/JaxRSOpenAPI/src/main/java/fr/istic/taa/jaxrs/RestServer.java
+/home/simonlecordier/workspace/m1/TAA/JaxRSOpenAPI/src/main/java/fr/istic/taa/jaxrs/dao/IGenericDao.java
+/home/simonlecordier/workspace/m1/TAA/JaxRSOpenAPI/src/main/java/fr/istic/taa/jaxrs/dao/AbstractJpaDao.java

@@ -10,7 +10,6 @@ public class Meeting implements Serializable {
     @Temporal(value = TemporalType.DATE)
     public Date date;
     public String entitled;
-    @ManyToOne(targetEntity = Individual.class, fetch = FetchType.EAGER)
     public Individual patient;
 
     public Meeting() {
@@ -82,7 +81,7 @@ public class Meeting implements Serializable {
      * Get patient of meeting
      * @return patient of meeting
      */
-    @ManyToOne
+    @ManyToOne(targetEntity = Individual.class, fetch = FetchType.EAGER)
     public Individual getPatient() {
         return patient;
     }
