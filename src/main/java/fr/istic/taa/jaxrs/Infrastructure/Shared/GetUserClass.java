@@ -1,6 +1,6 @@
 package fr.istic.taa.jaxrs.Infrastructure.Shared;
 
-import fr.istic.taa.jaxrs.dao.IndividualDao;
+import fr.istic.taa.jaxrs.dao.concrete.IndividualDao;
 
 public class GetUserClass {
 

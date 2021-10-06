@@ -1,5 +1,6 @@
-package fr.istic.taa.jaxrs.dao;
+package fr.istic.taa.jaxrs.dao.concrete;
 
+import fr.istic.taa.jaxrs.dao.AbstractJpaDao;
 import fr.istic.taa.jaxrs.entities.Meeting;
 import fr.istic.taa.jaxrs.entities.Agenda;
 

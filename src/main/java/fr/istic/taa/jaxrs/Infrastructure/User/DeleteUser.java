@@ -1,6 +1,9 @@
 package fr.istic.taa.jaxrs.Infrastructure.User;
 
-import fr.istic.taa.jaxrs.dao.*;
+import fr.istic.taa.jaxrs.dao.concrete.AgendaDao;
+import fr.istic.taa.jaxrs.dao.concrete.MeetingDao;
+import fr.istic.taa.jaxrs.dao.concrete.ProfessionalDao;
+import fr.istic.taa.jaxrs.dao.concrete.UserDao;
 
 public class DeleteUser {
 

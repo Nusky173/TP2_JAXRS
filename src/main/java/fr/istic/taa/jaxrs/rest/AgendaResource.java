@@ -3,8 +3,7 @@ package fr.istic.taa.jaxrs.rest;
 import fr.istic.taa.jaxrs.Infrastructure.Meeting.BookMeet;
 import fr.istic.taa.jaxrs.Infrastructure.Meeting.Exception.BookMeetWithProfessionalException;
 import fr.istic.taa.jaxrs.Infrastructure.Meeting.Exception.UnexistingAgendaException;
-import fr.istic.taa.jaxrs.dao.AgendaDao;
-import fr.istic.taa.jaxrs.dao.MeetingDao;
+import fr.istic.taa.jaxrs.dao.concrete.AgendaDao;
 import fr.istic.taa.jaxrs.entities.Agenda;
 import fr.istic.taa.jaxrs.entities.Meeting;
 

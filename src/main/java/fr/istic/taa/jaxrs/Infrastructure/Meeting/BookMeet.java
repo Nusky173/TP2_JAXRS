@@ -3,9 +3,9 @@ package fr.istic.taa.jaxrs.Infrastructure.Meeting;
 import fr.istic.taa.jaxrs.Infrastructure.Meeting.Exception.BookMeetWithProfessionalException;
 import fr.istic.taa.jaxrs.Infrastructure.Meeting.Exception.UnexistingAgendaException;
 import fr.istic.taa.jaxrs.Infrastructure.Shared.GetUserClass;
-import fr.istic.taa.jaxrs.dao.AgendaDao;
-import fr.istic.taa.jaxrs.dao.IndividualDao;
-import fr.istic.taa.jaxrs.dao.MeetingDao;
+import fr.istic.taa.jaxrs.dao.concrete.AgendaDao;
+import fr.istic.taa.jaxrs.dao.concrete.IndividualDao;
+import fr.istic.taa.jaxrs.dao.concrete.MeetingDao;
 import fr.istic.taa.jaxrs.entities.Meeting;
 
 public class BookMeet {

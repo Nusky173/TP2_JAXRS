@@ -1,8 +1,7 @@
 package fr.istic.taa.jaxrs.Infrastructure.User;
 
-import fr.istic.taa.jaxrs.dao.AgendaDao;
-import fr.istic.taa.jaxrs.dao.ProfessionalDao;
-import fr.istic.taa.jaxrs.entities.Agenda;
+import fr.istic.taa.jaxrs.dao.concrete.AgendaDao;
+import fr.istic.taa.jaxrs.dao.concrete.ProfessionalDao;
 import fr.istic.taa.jaxrs.entities.Professional;
 
 public class AddProfessional {

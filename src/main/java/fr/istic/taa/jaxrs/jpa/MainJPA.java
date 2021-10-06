@@ -1,9 +1,9 @@
 package fr.istic.taa.jaxrs.jpa;
 
-import fr.istic.taa.jaxrs.dao.AgendaDao;
-import fr.istic.taa.jaxrs.dao.IndividualDao;
-import fr.istic.taa.jaxrs.dao.MeetingDao;
-import fr.istic.taa.jaxrs.dao.ProfessionalDao;
+import fr.istic.taa.jaxrs.dao.concrete.AgendaDao;
+import fr.istic.taa.jaxrs.dao.concrete.IndividualDao;
+import fr.istic.taa.jaxrs.dao.concrete.MeetingDao;
+import fr.istic.taa.jaxrs.dao.concrete.ProfessionalDao;
 import fr.istic.taa.jaxrs.entities.Agenda;
 import fr.istic.taa.jaxrs.entities.Individual;
 import fr.istic.taa.jaxrs.entities.Meeting;

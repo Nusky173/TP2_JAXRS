@@ -1,8 +1,8 @@
 package fr.istic.taa.jaxrs.rest;
 
 import fr.istic.taa.jaxrs.Infrastructure.User.*;
-import fr.istic.taa.jaxrs.dao.IndividualDao;
-import fr.istic.taa.jaxrs.dao.UserDao;
+import fr.istic.taa.jaxrs.dao.concrete.IndividualDao;
+import fr.istic.taa.jaxrs.dao.concrete.UserDao;
 import fr.istic.taa.jaxrs.entities.Individual;
 import fr.istic.taa.jaxrs.entities.Professional;
 import fr.istic.taa.jaxrs.entities.User;

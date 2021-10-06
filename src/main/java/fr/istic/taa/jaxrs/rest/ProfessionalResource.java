@@ -1,10 +1,9 @@
 package fr.istic.taa.jaxrs.rest;
 
-import fr.istic.taa.jaxrs.dao.ProfessionalDao;
+import fr.istic.taa.jaxrs.dao.concrete.ProfessionalDao;
 import fr.istic.taa.jaxrs.entities.Agenda;
 
 import javax.ws.rs.*;
-import javax.ws.rs.core.Response;
 
 @Path("/professional")
 @Produces({"application/json"})
