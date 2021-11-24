@@ -1,148 +1,71 @@
-## JaxRS + openAPI
+# How to Run
 
-1. Import this project in your IDE, 
-2. Start the database
-3. Start the database viewer
-4. Start the backend. There is a main class to start the backend
+1. Run  `sh run-hsqldb-server.sh` 
+2. Run `sh show-hsqldb.sh`
 
+Now your local database is running.
 
+3. Run the rest application first 
+4. Then you may run the MainJpa to persist some data in database
 
+# How To Test
 
-# Task Open API Integration 
+## Using Swagger 
 
-Now, we would like to ensure that our API can be discovered. The OpenAPI Initiative (OAI) was created by a consortium of forward-looking industry experts who recognize the immense value of standardizing on how REST APIs are described. As an open governance structure under the Linux Foundation, the OAI is focused on creating, evolving and promoting a vendor neutral description format. 
+Swagger is enable in this application so you can test some Rest API function 
+at this adress : `http://localhost:8081/users` for example, it will return all 
+the users register of the application
 
-APIs form the connecting glue between modern applications. Nearly every application uses APIs to connect with corporate data sources, third party data services or other applications. Creating an open description format for API services that is vendor neutral, portable and open is critical to accelerating the vision of a truly connected world.
+## Using Rest Client
 
-To do this integration first, I already add a dependencies to openAPI libraries. 
+Or you can test using whatever Rest Client you want.
 
-```xml
-			<dependency>
-			<groupId>io.swagger.core.v3</groupId>
-			<artifactId>swagger-jaxrs2</artifactId>
-			<version>2.1.4</version>
-		</dependency>
-		<dependency>
-			<groupId>io.swagger.core.v3</groupId>
-			<artifactId>swagger-jaxrs2-servlet-initializer-v2</artifactId>
-			<version>2.1.4</version>
-		</dependency>
-```
+We personally used `chrome-extension://ehafadccdcdedbhcbddihehiodgcddpl/index.html`
 
-Next you have to add OpenAPI Resource to your application
+We write some example of command below.
 
-Your application could be something like that. 
+# Development 
 
-```java
-@ApplicationPath("/")
-public class RestApplication extends Application {
+ ## Users
 
-	@Override
-	public Set<Class<?>> getClasses() {
-		final Set<Class<?>> resources = new HashSet<>();
+Our application is able to create two types of users : `Professional` or `Individual`.
 
+A Professional is linked to an `Agenda` and he can diffuse te url of it with this request :
+`localhost:8081/professional/{id}`.
+The `Individual` can access to it if he knows the login.
 
-		// SWAGGER endpoints
-		resources.add(OpenApiResource.class);
+The `Individual` is the user that would be able to book a meet but the `Professional` can not do it.
 
-        //Your own resources. 
-        resources.add(PersonResource.class);
-....
-		return resources;
-	}
-}
-```
+We can get all the user or just one and also delete user.
 
-Next start your server, you must have your api description available at [http://localhost:8080/openapi.json](http://localhost:8080/openapi.json)
+/!\ You need to create the `Agenda` of the `Professional` before create it.  
 
-### Integrate Swagger UI. 
+Users are also able to login to the app with a password and a login.
 
-Next we have to integrate Swagger UI. We will first download it.
-https://github.com/swagger-api/swagger-ui
+We used a LoginModel to do it so the user will have to request this and write his identifiers in a Json.
+`localhost:8081/users/log`
 
-Copy dist folder content in src/main/webapp/swagger in your project. 
+## Agenda 
 
-Edit index.html file to automatically load your openapi.json file. 
+An `Agenda` is permanently created with a `Profesionnal` and linked to it.
+We supposed as they are created by an admin and he can do it using this command: 
 
-At the end of the index.html, your must have something like that.
+`localhost:8081/agenda` and fill some the corresponding information.
 
-```js
-   // Build a system
-      const ui = SwaggerUIBundle({
-        url: "http://localhost:8080/openapi.json",
-        dom_id: '#swagger-ui',
-        
-        ...
-```
+An `Agenda` is a List of `Meeting` taken by other user to meet
+the `Profesionnal`.
 
-Next add a new resources to create a simple http server when your try to access to http://localhost:8080/api/.
+The users can access to the list with the url of the `Agenda` he also needs
+to log in to it with a password and a login.
 
-This new resources can be developped as follows
+## Meeting
 
-```java
-package app.web.rest;
+A `Meeting` is an object created by an `Individual` focused on a Date and a title.
 
-import java.io.IOException;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.util.logging.Logger;
+For example to take a meeting with a professional the user use this request :
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+`localhost:8081/agenda/{idAgenda}/book?idUser=idUser`
 
-@Path("/api")
-public class SwaggerResource {
+then he has to fill in the information of the Meeting, 
+the date and a Title. 
 
-    private static final Logger logger = Logger.getLogger(SwaggerResource.class.getName());
-
-    @GET
-    public byte[] Get1() {
-        try {
-            return Files.readAllBytes(FileSystems.getDefault().getPath("src/main/webapp/swagger/index.html"));
-        } catch (IOException e) {
-            return null;
-        }
-    }
-
-    @GET
-    @Path("{path:.*}")
-    public byte[] Get(@PathParam("path") String path) {
-        try {
-            return Files.readAllBytes(FileSystems.getDefault().getPath("src/main/webapp/swagger/"+path));
-        } catch (IOException e) {
-            return null;
-        }
-    }
-
-}
-```
-
-Add this new resources in your application
-
-```java
-@ApplicationPath("/")
-public class RestApplication extends Application {
-
-
-	@Override
-	public Set<Class<?>> getClasses() {
-		final Set<Class<?>> resources = new HashSet<>();
-
-
-		// SWAGGER endpoints
-		resources.add(OpenApiResource.class);
-		resources.add(PersonResource.class);
-        //NEW LINE TO ADD
-		resources.add(SwaggerResource.class);
-
-		return resources;
-	}
-}
-```
-
-Restart your server and access to http://localhost:8080/api/, you should access to a swagger ui instance that provides documentation on your api. 
-
-You can follow this guide to show how you can specialise the documentation through annotations.
-
-https://github.com/swagger-api/swagger-samples/blob/2.0/java/java-resteasy-appclasses/src/main/java/io/swagger/sample/resource/PetResource.java

@@ -23,6 +23,7 @@ import javax.ws.rs.core.Application;
 
 import fr.istic.taa.jaxrs.rest.AgendaResource;
 import fr.istic.taa.jaxrs.rest.ProfessionalResource;
+import fr.istic.taa.jaxrs.rest.SwaggerResource;
 import fr.istic.taa.jaxrs.rest.UserResource;
 import io.swagger.v3.jaxrs2.integration.resources.OpenApiResource;
 
@@ -34,6 +35,8 @@ public class TestApplication extends Application {
 
         final Set<Class<?>> clazzes = new HashSet<Class<?>>();
 
+        clazzes.add(SwaggerResource.class);
+        clazzes.add(OpenApiResource.class);
         clazzes.add(AgendaResource.class);
         clazzes.add(ProfessionalResource.class);
         clazzes.add(UserResource.class);

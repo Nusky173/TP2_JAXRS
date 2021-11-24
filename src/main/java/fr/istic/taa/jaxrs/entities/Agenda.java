@@ -7,6 +7,7 @@ import java.util.List;
 
 @Entity
 @NamedQueries({
+        //get the meetings list of the agenda.id
         @NamedQuery(name = "listMeetingOfAgenda", query = "Select m From Agenda a, Meeting m Where a.id = :id"),
         @NamedQuery(name="connectToAgenda", query="select a from Agenda a " +
                 "where a.login = :login AND a.password = :password ")

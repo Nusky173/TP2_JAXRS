@@ -21,9 +21,15 @@ public class BookMeet {
         this.idAgenda = idAgenda;
     }
 
+    /**
+     * @return The Meeting thas has be booked by the user {idUser} with the professional linked to agenda {idAgenda}
+     * @throws BookMeetWithProfessionalException A professional can't book a meet with his professional account
+     * @throws UnexistingAgendaException
+     */
     public Meeting bookAMeeting() throws BookMeetWithProfessionalException, UnexistingAgendaException {
         final var agendaDao = new AgendaDao();
         final var agenda = agendaDao.findOne(idAgenda);
+        //only individual can book a meeting
         final var isIndividual = new GetUserClass(idUser).isIndividual();
         if ( agenda == null) {
             throw new UnexistingAgendaException("This agenda does not exist");
